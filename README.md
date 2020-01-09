@@ -1,0 +1,3 @@
+Dieses AddOn für REDAXO 5 ermöglicht es, Benutzern das Löschen von Artikeln und das Löschen von Kategorien zu verbieten. Es muss in einer Benutzerrolle unter <code>Allgemein</code> das Recht für <code>mf_no_delete</code> eingeräumt werden. Anschließend ist der jeweilige Nutzer nicht mehr berechtigt, Kategorien und Artikel zu löschen.
+
+<strong>Bitte beachten: Das AddOn greift nicht in der Admin-Rolle. Admins können weiterhin Artikel und Kategorien löschen.</strong>
