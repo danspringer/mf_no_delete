@@ -1,6 +1,7 @@
 <?php
 // Löschen-Button ausblenden
-if (rex::isBackend() && rex::getUser()->hasPerm('mf_no_delete[]') && !rex::getUser()->isAdmin() ) {
+if (rex::isBackend() && rex::getUser()) {
+    if (rex::getUser()->hasPerm('mf_no_delete[]') && !rex::getUser()->isAdmin()) {
     rex_extension::register('OUTPUT_FILTER', function(rex_extension_point $ep) {	
 		$ep->setSubject(preg_replace('#(\<a.*href).*(category_delete).*(\<\/a\>)#i', '', $ep->getSubject()));
 		$ep->setSubject(preg_replace('#(\<a.*href).*(article_delete).*(\<\/a\>)#i', '', $ep->getSubject()));
@@ -18,6 +19,8 @@ if (rex::isBackend() && rex::getUser()->hasPerm('mf_no_delete[]') && !rex::getUs
 		$ep->setSubject(str_replace('<span class="text-muted"><i class="rex-icon rex-icon-delete"></i> deletar</span>', '<span class="text-muted">'.rex_i18n::msg('startarticle').'</span>', $ep->getSubject()));
 		// SV radera
 		$ep->setSubject(str_replace('<span class="text-muted"><i class="rex-icon rex-icon-delete"></i> radera</span>', '<span class="text-muted">'.rex_i18n::msg('startarticle').'</span>', $ep->getSubject()));
+
 	  });
+	}
 }
 ?>
